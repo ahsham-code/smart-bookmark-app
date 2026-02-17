@@ -6,9 +6,6 @@ export default function Home() {
   const login = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: {
-        redirectTo: 'http://localhost:3000/dashboard',
-      },
     });
 
     if (error) {
@@ -17,7 +14,14 @@ export default function Home() {
   };
 
   return (
-    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <button onClick={login}>Sign in with Google</button>
     </div>
   );
